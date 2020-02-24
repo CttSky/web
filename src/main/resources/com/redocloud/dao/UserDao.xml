@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redocloud.dao.UserDao">
+    <select id="findAll" resultType="com.redocloud.entity.User">
+      select * from user;
+  </select>
+    <insert id="add" parameterType="com.redocloud.entity.User">
+        insert into user(user_id, user_pwd, user_area, user_idnum, user_name, user_nickname, user_des, user_img, user_gender, user_constellation, birthday)
+        value(#{user_id}, #{user_pwd}, #{user_area}, #{user_idnum}, #{user_name}, #{user_nickname}, #{user_des}, #{user_img}, #{user_gender}, #{user_constellation}, #{birthday})
+    </insert>
+    <update id="edit" parameterType="com.redocloud.entity.User">
+        update user set user_area = #{user_area},user_name = #{user_name},user_nickname= #{user_nickname},user_des = #{user_des},user_img= #{user_img},user_gender= #{user_gender},user_constellation= #{user_constellation},birthday= #{birthday} where user_id = #{user_id}
+    </update>
+</mapper>
